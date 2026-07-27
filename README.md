@@ -4,64 +4,74 @@ Prototype pipeline for SBOM cleaning, normalization, feature extraction, and sim
 
 ## What gets pushed vs not
 
-| Pushed to GitHub | Not pushed (local only) |
+| Pushed to GitHub | Not pushed (too large / local) |
 |---|---|
-| `src/`, `scripts/`, `docs/` | `.venv/` |
-| `requirements.txt`, `config.example.yaml` | `outputs/` (generated) |
-| `README.md`, `.gitignore` | SBOM dataset (~11 GB) |
+| `src/`, `scripts/`, `docs/` | `.venv/` (recreate with pip) |
+| `outputs/` — **precomputed results included** | Raw SBOM dataset (~11 GB) |
+| `requirements.txt`, `config.yaml`, `README.md` | |
 
-## Quick start (new machine)
+You can **clone and use `outputs/` immediately** without rerunning. The dataset is only needed if you want to regenerate.
 
-### 1. Clone
+## Quick start — results only (no rerun)
 
 ```bash
 git clone <YOUR_REPO_URL>
 cd project2
+
+# Open these — no Python required:
+open outputs/similarity_explanations.md
+open outputs/inventory_report.txt
 ```
 
-### 2. Python environment
+Or browse `outputs/system_features.csv` and `outputs/similarity_pairs.csv` in Excel / pandas.
+
+## Full pipeline (new machine, optional rerun)
+
+### 1. Clone + Python
 
 ```bash
+git clone <YOUR_REPO_URL>
+cd project2
 python3 -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Download the SBOM dataset
+### 2. Dataset (only if rerunning)
 
-From [Zenodo](https://zenodo.org/records/15334733) — file `github_spdx_sbom_sample.zip` (~1.1 GB compressed, ~11 GB extracted).
+Download from [Zenodo](https://zenodo.org/records/15334733) → `github_spdx_sbom_sample.zip`
 
 ```bash
 mkdir -p data
-# unzip into data/github_spdx_sbom_sample/
-# You should see files like: 20250208_1001_sbom_data.json
+unzip github_spdx_sbom_sample.zip -d data/
+# Expect: data/github_spdx_sbom_sample/*.json
 ```
 
-### 4. Config
+On this Mac you can symlink instead of re-downloading:
 
 ```bash
-cp config.example.yaml config.yaml
-# Edit data_dir if your dataset lives elsewhere
+ln -s /path/to/github_spdx_sbom_sample data/github_spdx_sbom_sample
 ```
 
-### 5. Run the pipeline
+### 3. Run (optional — outputs already in repo)
 
 ```bash
-# Step 1–2: inventory + normalize (sample of 2000 files)
 python scripts/inventory_sample.py --sample-size 2000
-
-# Step 3: per-system features
 python scripts/extract_features.py
-
-# Step 4: similarity + explanations
 python scripts/similarity_sample.py --n-systems 100 --explain-top 10
 ```
 
-### 6. Check outputs
+## Take everything on a USB / zip (offline)
 
-- `outputs/inventory_report.txt` — parse stats
-- `outputs/system_features.csv` — one row per SBOM
-- `outputs/similarity_explanations.md` — “they share X” narratives
+If you need the **raw SBOM files** too (not on GitHub):
+
+```bash
+cd /Users/arbaji10/internship/project2
+zip -r arss-pipeline-with-data.zip . \
+  -x ".venv/*" -x ".git/*" -x "__pycache__/*"
+```
+
+Or copy the project folder + separately copy `Downloads/github_spdx_sbom_sample/`.
 
 ## Scripts
 
@@ -73,9 +83,10 @@ python scripts/similarity_sample.py --n-systems 100 --explain-top 10
 
 ## Docs
 
-See `docs/PIPELINE.md` for full methodology, decisions, and changelog.
+See `docs/PIPELINE.md` for methodology and changelog.  
+See `outputs/README.md` for what the bundled snapshot contains.
 
 ## Requirements
 
-- Python 3.10+
-- ~15 GB free disk (dataset + venv + outputs)
+- **View results only:** any machine with git
+- **Rerun pipeline:** Python 3.10+, ~15 GB disk (dataset + venv)

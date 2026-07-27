@@ -1,9 +1,8 @@
-.venv/
-__pycache__/
-*.pyc
 .DS_Store
-outputs/
 *.egg-info/
+
+# Virtualenv — recreate with: python3 -m venv .venv && pip install -r requirements.txt
+.venv/
 
 # Local config overrides (optional — config.yaml is tracked with relative paths)
 # config.yaml

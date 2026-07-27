@@ -1,0 +1,28 @@
+Corpus systems (IDF/DF): 528
+Compared systems: 100
+Feature: package_keys
+Metric: IDF-weighted Jaccard
+Stop rule: max_df=0.2, stop_top_k=None
+Stop tokens: 470
+Mean tokens/system before stop: 332.5
+Mean tokens/system after stop (compared): 200.9
+Mean pairwise similarity: 0.0199
+Median pairwise similarity: 0.0000
+Pairs explained: 10 (min_shared=2)
+
+Top 15 stopped tokens:
+  npm::debug: df=220 (41.7%)
+  npm::ms: df=219 (41.5%)
+  npm::inherits: df=218 (41.3%)
+  npm::semver: df=209 (39.6%)
+  npm::minimatch: df=207 (39.2%)
+  npm::safe-buffer: df=207 (39.2%)
+  npm::supports-color: df=207 (39.2%)
+  npm::balanced-match: df=207 (39.2%)
+  npm::brace-expansion: df=207 (39.2%)
+  npm::concat-map: df=203 (38.4%)
+  npm::ansi-styles: df=203 (38.4%)
+  npm::mime-db: df=202 (38.3%)
+  npm::mime-types: df=202 (38.3%)
+  npm::has-flag: df=202 (38.3%)
+  npm::chalk: df=201 (38.1%)

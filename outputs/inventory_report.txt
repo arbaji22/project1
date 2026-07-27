@@ -1,0 +1,63 @@
+Files scanned: 2000
+Loaded OK: 2000
+  recovered from concatenated JSON: 92
+Parse / load failures: 0
+Dropped (n_dependencies < 1): 1472
+Clean SBOMs kept: 528
+
+— All loaded —
+Mean dependencies: 111.2
+Median dependencies: 0.0
+Max dependencies: 3427
+
+— Clean (n_dependencies ≥ 1) —
+Mean dependencies: 421.3
+Median dependencies: 54.5
+
+Top ecosystems (clean dependency packages):
+  npm: 213496
+  gem: 2581
+  composer: 1588
+  maven: 1275
+  pypi: 1015
+  cargo: 969
+  pub: 579
+  golang: 518
+  nuget: 205
+  github_actions: 195
+
+Version kind mix (clean deps):
+  exact: 218901
+  range: 1851
+  other: 1142
+  missing: 487
+  branch: 40
+
+Top packages (clean, normalized package_key):
+  npm::debug: 681
+  npm::ms: 653
+  npm::semver: 637
+  npm::supports-color: 635
+  npm::ansi-styles: 531
+  npm::chalk: 530
+  npm::strip-ansi: 507
+  npm::kind-of: 505
+  npm::source-map: 502
+  npm::ansi-regex: 498
+  npm::find-up: 460
+  npm::inherits: 457
+  npm::commander: 449
+  npm::readable-stream: 414
+  npm::has-flag: 412
+  npm::string-width: 412
+  npm::safe-buffer: 396
+  npm::camelcase: 389
+  npm::locate-path: 389
+  npm::p-locate: 389
+
+Normalization checks:
+  purls still percent-encoded: 34356
+  namespace_norm still percent-encoded: 0
+  scoped package_keys (eco::@scope/name): 33033
+  unique package_key values: 11081
+  unique raw package_name values: 10992

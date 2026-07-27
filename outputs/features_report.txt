@@ -1,0 +1,69 @@
+Systems featurized: 528
+Feature columns: 41
+
+Scalar feature summary:
+       n_dependencies  n_unique_packages  n_ecosystems    n_vendors  primary_ecosystem_share  frac_version_exact
+count      528.000000         528.000000    528.000000   528.000000               528.000000          528.000000
+mean       421.251894         332.490530      1.159091   280.435606                 0.987767            0.785919
+std        632.752260         459.096811      0.410110   386.184577                 0.053329            0.369061
+min          1.000000           1.000000      1.000000     1.000000                 0.500000            0.000000
+25%          6.750000           6.000000      1.000000     5.000000                 1.000000            0.764063
+50%         54.500000          52.000000      1.000000    39.500000                 1.000000            0.996549
+75%        717.500000         634.000000      1.000000   546.500000                 1.000000            1.000000
+max       3427.000000        1542.000000      3.000000  1476.000000                 1.000000            1.000000
+
+Primary ecosystem distribution:
+primary_ecosystem
+npm               288
+maven              62
+pypi               39
+gem                35
+github_actions     31
+nuget              27
+composer           18
+pub                17
+golang              7
+cargo               4
+
+Example row:
+source_file                        20250210_447_sbom_data.json
+sbom_name                      com.github.sekthor/singing-city
+n_dependencies                                             932
+n_unique_packages                                          840
+n_unique_packages_versioned                                932
+n_ecosystems                                                 3
+primary_ecosystem                                          npm
+primary_ecosystem_share                               0.954936
+ecosystem_entropy                                     0.281778
+n_vendors                                                  630
+primary_vendor                                          @babel
+primary_vendor_share                                  0.120172
+vendor_entropy                                        8.420535
+frac_version_exact                                    0.995708
+frac_version_range                                         0.0
+frac_version_missing                                       0.0
+frac_version_branch                                        0.0
+frac_version_other                                    0.004292
+n_version_exact                                            928
+n_version_range                                              0
+n_version_missing                                            0
+eco_count__npm                                             890
+eco_share__npm                                        0.954936
+eco_count__gem                                               0
+eco_share__gem                                             0.0
+eco_count__composer                                          0
+eco_share__composer                                        0.0
+eco_count__maven                                             0
+eco_share__maven                                           0.0
+eco_count__pypi                                              0
+eco_share__pypi                                            0.0
+eco_count__cargo                                             0
+eco_share__cargo                                           0.0
+eco_count__pub                                               0
+eco_share__pub                                             0.0
+eco_count__golang                                           39
+eco_share__golang                                     0.041845
+eco_count__nuget                                             0
+eco_share__nuget                                           0.0
+eco_count__github_actions                                    3
+eco_share__github_actions                             0.003219
