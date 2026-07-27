@@ -1,0 +1,17 @@
+# Copy to config.yaml and set data_dir to your local SBOM folder.
+# Download: https://zenodo.org/records/15334733 (github_spdx_sbom_sample.zip)
+
+data_dir: data/github_spdx_sbom_sample
+
+sample_size: 2000
+random_seed: 42
+min_dependencies: 1
+top_ecosystems: 10
+
+similarity:
+  max_df: 0.20
+  stop_top_k: null
+  weighted: true
+  min_shared_for_explain: 2
+
+output_dir: outputs

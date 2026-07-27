@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+outputs/
+*.egg-info/
+
+# Local config overrides (optional — config.yaml is tracked with relative paths)
+# config.yaml
+
+# Dataset is too large for git — download from Zenodo
+data/*
+!data/.gitkeep

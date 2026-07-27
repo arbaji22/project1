@@ -1,0 +1,1 @@
+"""ARSS SBOM similarity pipeline (proxy corpus: GitHub SPDX SBOMs)."""
