@@ -136,7 +136,7 @@ def fig0_sbom_anatomy() -> None:
     ax.text(
         0.6,
         3.45,
-        "Dependency packages  (the components inside the SBOM)",
+        "Dependency packages",
         fontsize=11,
         fontweight="semibold",
         color=C_INK,
